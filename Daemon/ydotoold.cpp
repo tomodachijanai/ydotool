@@ -77,10 +77,7 @@ int main(int argc, char **argv) {
 
 	while (int fd_client = accept(fd_listener, nullptr, nullptr)) {
 		std::cerr << "ydotoold: accepted client\n";
-
-		std::thread thd(client_handler, fd_client);
-		thd.detach();
-
+		client_handler(fd_client);
 	}
 
 }
